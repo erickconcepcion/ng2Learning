@@ -6,8 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./say-hello.component.css']
 })
 export class SayHelloComponent implements OnInit {
-
-  constructor() { }
+  public name
+  constructor() {
+    this.name = 'Max'
+  }
+  sayMyName() {
+    console.log('My name is', this.name)
+  }
 
   ngOnInit() {
   }

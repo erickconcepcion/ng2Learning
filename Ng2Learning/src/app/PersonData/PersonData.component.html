@@ -1,0 +1,14 @@
+<h1>
+  All Persons
+</h1>
+<div>
+  <form [formGroup]="personForm" (ngSubmit)="registerPerson($event)">
+    <input formControlName="Name" type="text" placeholder="Name">
+    <input formControlName="LastName" type="text" placeholder="Lastname">
+    <input formControlName="Age" type="number" placeholder="Age">
+    <input formControlName="About" type="text" placeholder="About">
+    <button type="submit">Register</button>
+  </form>
+</div>
+<div (click)="selectPerson(person)" *ngFor="let person of persons">{{person.Name}}, {{person.LastName}}, {{person.Age}}, {{person.About}}</div>
+<app-PersonDetails *ngIf="showDetails" [selectPerson]="selectedPerson"></app-PersonDetails>

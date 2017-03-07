@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import{ User } from './MyComponent/User'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+  user: User
+
+  constructor() {
+    this.user = {
+      UserName: 'Erick',
+      Password: 'Abcd.1234',
+      AboutMe: 'Im so hot'
+    };
+  }
 }
