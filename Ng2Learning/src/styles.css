@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+@import '~mdbootstrap/css/bootstrap.min.css';
+/*@import '~mdbootstrap/css/mdb.min.css';*/
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+button:focus {
+    outline: none;
+}
+
+a:hover, a:active, a:visited, a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: none;
+}

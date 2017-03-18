@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
+import { Http } from '@angular/http';
 import {Person} from './Person';
 @Injectable()
 export class PersonDataService {
 
-    constructor() { 
+    constructor(private http: Http) { 
         
     }
 

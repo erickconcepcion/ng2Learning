@@ -1,6 +1,9 @@
-<h1>
-  {{title}} and im proud
-</h1>
-<app-say-hello></app-say-hello>
-<app-MyComponent [User]= "user"></app-MyComponent>
-<app-PersonData></app-PersonData>
+<md-toolbar color="accent">
+  <nav> <span class="space-left">Learning App</span>
+    <a md-button routerLink="/sayhello">Say Hello</a>
+    <a md-button routerLink="/persondata">Person Data</a>
+  </nav>
+</md-toolbar>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
