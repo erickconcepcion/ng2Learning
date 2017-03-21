@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/map'
 import {Person} from './Person';
+import {AppConfig} from '../AppConfig'
 @Injectable()
 export class PersonDataService {
 
@@ -12,8 +15,12 @@ export class PersonDataService {
 
   }
 
-  getPersons(): Person[] {
-      return [
+  getPersons(): Observable<Person[]> {
+
+    var keyword = 'person';
+    var result: Observable<Person[]> = this.http.get(AppConfig.Endpoints(0).Person[keyword].Url)
+      .map(res => res.json())/*result = people this.people = people*/;
+    return result;/*[
       {
         Id: 1,
         Name: 'Erick',
@@ -42,7 +49,7 @@ export class PersonDataService {
         Age: 51,
         About: 'Im the best Mom'
       }
-    ];
+    ];*/
   }
 
   deletePerson() {

@@ -11,25 +11,33 @@ export class PersonDataComponent implements OnInit {
   public persons: Person[];
   public selectedPerson: Person;
   public showDetails: boolean;
+  public registering: boolean;
   public personForm = this.fb.group({
-    Name: [''], 
+    FirstName: [''], 
     LastName: [''],
     Age: [0],
     About: ['']
   });
   public showClose: boolean;
   public showPlus: boolean;
+  public toolTip: string;
   private addPerson: Person;
   constructor(private fb: FormBuilder, private personDataService: PersonDataService) {
-    this.persons = personDataService.getPersons();
+    personDataService.getPersons().subscribe(persons => {
+      this.persons = persons
+    });
     this.evalShowDetails();
     this.showClose = false;
     this.showPlus = true;
+    this.toolTip = `<h1>hello</h1>`
    }
 
   registerPerson(event: any) {
+    this.registering = true;
     console.log(this.personForm.value);
     this.persons.unshift(this.personForm.value);
+    this.personForm.reset();
+    this.registering = false;
   }
   selectPerson(newPerson: Person) {
     this.selectedPerson = newPerson;

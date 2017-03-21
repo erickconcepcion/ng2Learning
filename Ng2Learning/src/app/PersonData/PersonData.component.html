@@ -18,7 +18,7 @@
       <tr *ngIf="showClose">        
           <td>
             <md-input-container>
-              <input mdInput formControlName="Name" type="text" placeholder="Name">
+              <input mdInput formControlName="FirstName" type="text" placeholder="Name">
             </md-input-container>
           </td>
           <td>
@@ -36,10 +36,13 @@
               <input mdInput formControlName="About" type="text" placeholder="About">
             </md-input-container>
           </td>
-          <td><button md-raised-button color="primary" type="submit">Register</button></td>                      
+          <td class="row">
+            <button md-raised-button color="primary" type="submit">Register</button>
+            <md-spinner *ngIf="registering" class="loading-spin"></md-spinner>
+          </td>                      
       </tr>
-      <tr (click)="selectPerson(person)" *ngFor="let person of persons">
-        <td>{{person.Name}}</td>
+      <tr mdTooltip="`<ng-container><h1>hello</h1></ng-container>`" (mouseenter)="selectPerson(person)" *ngFor="let person of persons">
+        <td>{{person.FirstName}}</td>
         <td>{{person.LastName}}</td>
         <td>{{person.Age}}</td>
         <td>{{person.About}}</td>
